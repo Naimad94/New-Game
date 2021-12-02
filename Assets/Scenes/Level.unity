@@ -294,6 +294,10 @@ MonoBehaviour:
   - {fileID: 580370567789912979, guid: 6d9d9ca6a6258a9439fdf2d59a0061c7, type: 3}
   - {fileID: 7405380232667063, guid: 801b240cb7336f740acc82ab16427845, type: 3}
   - {fileID: 6355098344099172109, guid: 41c01307bfdbbc046b4c28d16e2ad0fc, type: 3}
+  - {fileID: 8407476762146162320, guid: 9147e06dc35a08f4fa790bd9a77b65a2, type: 3}
+  - {fileID: 6473844027609183234, guid: 39f7c297a809596408260bd10f7fda2f, type: 3}
+  - {fileID: 2926520777108971742, guid: e23fe2a3ff243804b938b96d9b9fb3c3, type: 3}
+  - {fileID: 2398247575619762651, guid: 94ba33707ccdf3b47b38aa59ea99e20b, type: 3}
   zSpawn: 0
   tileLength: 30
   numberOfTiles: 5
