@@ -1,50 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
-    private Vector3 direction; //allows 3D direction.
-    public float forwardSpeed; //allows to adjust forward speed.
+    private Vector3 direction;
+    public float forwardSpeed;
 
-    private int desiredLane = 1; //0:left 1:middle 2:right.
-    public float laneDistance = 4; //Distance between two lanes.
+    private int desiredLane = 1;//0:left, 1:middle, 2:right
+    public float laneDistance = 2.5f;//The distance between tow lanes
 
-    public float jumpForce; //ability to jump.
-    public float Gravity = -20; //allows gravity.
+    public bool isGrounded;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
 
+    public float jumpForce;
+    public float Gravity = -20;
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         direction.z = forwardSpeed;
 
-        if (controller.isGrounded)
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
+        if (isGrounded)
         {
-            direction.y = -1;
+            direction.y = -2;
             if (SwipeManager.swipeUp)
-            {
                 Jump();
-            }
         }
         else
-        {
             direction.y += Gravity * Time.deltaTime;
-        }
-        //Gather the inputs on which lane we should be.
+
+
+        //Gather the inputs on which lane we should be
         if (SwipeManager.swipeRight)
         {
             desiredLane++;
             if (desiredLane == 3)
                 desiredLane = 2;
         }
-
         if (SwipeManager.swipeLeft)
         {
             desiredLane--;
@@ -53,30 +50,26 @@ public class PlayerController : MonoBehaviour
         }
 
         //Calculate where we should be in the future
-
         Vector3 targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
-
         if (desiredLane == 0)
-        {
             targetPosition += Vector3.left * laneDistance;
-        }
         else if (desiredLane == 2)
-        {
             targetPosition += Vector3.right * laneDistance;
-        }
 
-        //80 glitchy, 240 less glitchy, 360 fixed but i don't understand what this was.
+
+        //transform.position = targetPosition;
         if (transform.position == targetPosition)
             return;
         Vector3 diff = targetPosition - transform.position;
         Vector3 moveDir = diff.normalized * 25 * Time.deltaTime;
-        if (moveDir.sqrMagnitude < diff.sqrMagnitude)
+        if (moveDir.sqrMagnitude < diff.magnitude)
             controller.Move(moveDir);
         else
             controller.Move(diff);
-    }
 
-            private void FixedUpdate()
+
+    }
+    private void FixedUpdate()
     {
         controller.Move(direction * Time.fixedDeltaTime);
     }
@@ -86,9 +79,9 @@ public class PlayerController : MonoBehaviour
         direction.y = jumpForce;
     }
 
-    private void onControllerColliderHit(ControllerColliderHit hit)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.transform.tag == "Obstacle")
+        if (hit.transform.tag == "Obstacle")
         {
             PlayerManager.gameOver = true;
         }

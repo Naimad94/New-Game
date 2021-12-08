@@ -7,7 +7,6 @@ public class Events : MonoBehaviour
     {
         SceneManager.LoadScene("Level");
     }
-
     public void QuitGame()
     {
         Application.Quit();
