@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce;
     public float Gravity = -20;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
