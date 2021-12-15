@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public float jumpForce;
     public float Gravity = -20;
+
+    public Animator animator;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
         if (!PlayerManager.isGameStarted)
             return;
 
+        animator.setBool("isGameStarted", true);
         direction.z = forwardSpeed;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
