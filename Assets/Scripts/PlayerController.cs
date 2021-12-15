@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         if (!PlayerManager.isGameStarted)
             return;
 
-        animator.setBool("isGameStarted", true);
+        animator.SetBool("isGameStarted", true);
         direction.z = forwardSpeed;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
