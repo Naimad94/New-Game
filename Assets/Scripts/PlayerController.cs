@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 direction;
     public float forwardSpeed;
+    public float maxSpeed;
 
     private int desiredLane = 1;//0:left, 1:middle, 2:right
     public float laneDistance = 2.5f;//The distance between tow lanes
@@ -28,10 +29,15 @@ public class PlayerController : MonoBehaviour
         if (!PlayerManager.isGameStarted)
             return;
 
+        //Increases speed of game.
+        if (forwardSpeed < maxSpeed)
+            forwardSpeed += 0.1f * Time.deltaTime;
+
         animator.SetBool("isGameStarted", true);
         direction.z = forwardSpeed;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.15f, groundLayer);
+        animator.SetBool("isGrounded", isGrounded);
         if (isGrounded)
         {
             direction.y = -2;
