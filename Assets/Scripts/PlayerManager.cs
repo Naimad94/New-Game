@@ -22,15 +22,15 @@ public class PlayerManager : MonoBehaviour
     {
         if(gameOver)
         {
-            Time.timeScale = 0;
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
         }
 
-        if (SwipeManager.tap)
+        if (SwipeManager.tap && !isGameStarted)
         {
             isGameStarted = true;
             Destroy(startingText);
         }
-        
+
     }
 }
