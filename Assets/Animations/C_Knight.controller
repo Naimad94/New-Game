@@ -60,7 +60,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102593195750686920}
+  m_DstState: {fileID: 0}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -112,13 +112,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: Blend
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -293,20 +299,20 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102796311340147294}
-    m_Position: {x: -140, y: -2460, z: 0}
+    m_Position: {x: 50, y: -1130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102564768050106564}
-    m_Position: {x: -1510, y: -2050, z: 0}
+    m_Position: {x: -320, y: -1250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102825972571566372}
-    m_Position: {x: -910, y: -2550, z: 0}
+    m_Position: {x: -320, y: -1050, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -380, y: -770, z: 0}
-  m_EntryPosition: {x: 880, y: -2330, z: 0}
+  m_EntryPosition: {x: 50, y: -1450, z: 0}
   m_ExitPosition: {x: -240, y: -800, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102796311340147294}
