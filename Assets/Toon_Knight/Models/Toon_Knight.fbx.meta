@@ -333,6 +333,9 @@ ModelImporter:
   - first:
       137: 13700002
     second: h_007
+  - first:
+      74: 6389560988930677810
+    second: jump (1)
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -1362,11 +1365,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: run
-      takeName: victory
+      name: jump (1)
+      takeName: jump
       internalID: 0
       firstFrame: 1
-      lastFrame: 12
+      lastFrame: 23
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
